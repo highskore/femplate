@@ -19,3 +19,19 @@ jobs:
       foundry-fuzz-runs: 5000
       foundry-profile: "test"
       match-path: "test/**/*.sol"
+
+  coverage:
+    needs: ["test"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+      - name: Run Forge coverage
+        run: |
+          forge coverage --report lcov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./lcov.info
