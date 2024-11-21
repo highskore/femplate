@@ -1,5 +1,7 @@
 # Femplate
 
+[![codecov](https://codecov.io/gh/highskore/femplate/branch/main/graph/badge.svg)](https://codecov.io/gh/highskore/femplate)
+
 **A Foundry template for Rhinestone projects**
 
 ## Using this repo
